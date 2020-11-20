@@ -1,0 +1,21 @@
+program DemoELSEIF;
+#include("stdlib.hhf")
+
+static
+    c: char := 'a';
+
+begin DemoELSEIF;
+
+    mov(c, ch); // Move c to the ch register
+
+    if(ch = 'a') then
+        stdout.put("You selected the 'a' menu item", nl);
+    elseif(ch = 'b') then
+        stdout.put("You selected the 'b' menu item", nl);
+    elseif(ch = 'c') then
+        stdout.put("You selected the 'c' menu item", nl);
+    else
+        stdout.put("Error: illegal menu item selection", nl);
+    endif;
+
+end DemoELSEIF;

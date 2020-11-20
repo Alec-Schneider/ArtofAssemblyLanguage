@@ -1,0 +1,11 @@
+Program CharVars;
+#include("stdlib.hhf");
+
+static
+    c: char;
+    LetterA: char := 'A';
+
+begin CharVars;
+    // print out the letter to the terminal
+    stdout.put("LetterA: ", LetterA, nl);
+end CharVars;

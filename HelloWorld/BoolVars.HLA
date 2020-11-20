@@ -1,0 +1,18 @@
+Program BoolVars;
+#include("stdlib.hhf");
+
+static
+    BoolVar: boolean;
+    HasClass: boolean := false;
+    IsClear: boolean := true;
+begin BoolVars;
+    stdout.put("HasClass: ", HasClass, nl);
+    stdout.put("IsClear: ", IsClear, nl);
+
+    // Boolean input not supported!
+    // get true or false from the user
+    // stdout.put("Enter true or false: ");
+    // stdin.get(BoolVar);
+    // stdout.put("BoolVar is now: ", BoolVar, nl);
+
+end BoolVars;
