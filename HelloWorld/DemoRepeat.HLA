@@ -1,0 +1,11 @@
+program DemoRepeat;
+#include("stdlib.hhf")
+
+begin DemoRepeat;
+
+    mov(10, ecx);
+    repeat
+        stdout.put("ecx = ", ecx, nl);
+        sub(1, ecx);
+    until(ecx=0);
+end DemoRepeat;
