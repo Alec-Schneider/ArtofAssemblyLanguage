@@ -8,7 +8,7 @@ var
 
 begin NumsInColumns;
 
-         mov(96, i32);
+         mov(104, i32);
          mov(0, ColCnt);
          while(i32 > 0) do
 
