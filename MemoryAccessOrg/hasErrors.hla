@@ -1,0 +1,14 @@
+program hasErrors;
+static
+         i8:   int8;
+         i16:  int16;
+         i32:  int32;
+
+begin hasErrors;
+         // All three mov statements will cause errors
+         // because sizes do not align
+         mov(i8, eax);
+         mov(i16, al);
+         mov(i32, ax);
+
+end hasErrors;
