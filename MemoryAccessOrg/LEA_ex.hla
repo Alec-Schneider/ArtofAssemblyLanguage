@@ -1,0 +1,15 @@
+program LEA_ex;
+#include("stdlib.hhf")
+
+static
+         b:byte; @nostorage;
+               byte 7, 0, 6, 1, 5, 2, 4, 3;
+
+begin LEA_ex;
+         
+         lea(ebx, b);
+
+         for( mov(0, ecx); ecx < 8; inc(ecx)) do
+               stdout.put("[ebx+ecx]=", (type byte [ebx+ecx]), nl);
+         endfor; 
+end LEA_ex;

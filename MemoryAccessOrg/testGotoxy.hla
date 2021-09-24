@@ -1,0 +1,50 @@
+program testGotoxy;
+#include("stdlib.hhf");
+#include("console.hhf");
+
+var
+         x:    uns32;
+         y:    uns32;
+
+begin testGotoxy;
+
+         // Throw up some text to prove that
+         // this program really clears the screen:
+
+         stdout.put
+         (
+             nl,
+             "HLA console.gotxy() Test Routine", nl,
+             "--------------------------------", nl,
+             nl,
+             "This routine will clear the screen then demonstrate",
+             " the use of the gotoxy routine to position the cursor" 
+             " at various points on the screen.", nl, nl,
+             "Press the enter Key to continue" 
+         );
+
+         // Make the user hit Enter to continue. This is so that they
+         // can control when they see the effect of console.galaxy.
+
+         stdin.readLn();
+
+         // Okay, clear the sceen:
+         console.cls();
+
+         // Now demonstrate the gotoxy routine:
+         console.gotoxy(5, 10);
+         stdout.put("(5, 10)");
+
+         console.gotoxy(10, 5);
+         stdout.put("(10, 5)");
+
+         mov(20, x);
+         for( mov(0, y); y < 20; inc(y)) do
+
+               console.gotoxy(y, x);
+               stdout.put("(", x, ",", y, ")");
+               inc(x);
+        endfor;
+
+end testGotoxy;
+         

@@ -1,0 +1,30 @@
+program testCls;
+#include("stdlib.hhf");
+#include("console.hhf");
+
+begin testCls;
+         
+         // Throw up some text to prove that
+         // this progfram really clears the screen:
+
+         stdout.put
+         (
+             nl,
+             "HLA console.cls() Test routine", nl,
+             "------------------------------", nl,
+             nl,
+             "This routine will clear the screen and move the cursor",
+             " to (0,0), then it will print a short message and quit",
+             nl, nl,
+             "Press the Enter key to continue."
+         );
+
+         // Make the user hit enter to continue. This is so that they
+         // can see that the screen is not blank.
+
+         stdin.readLn();
+
+         // Okay clear the screen
+         console.cls();
+         stdout.put("The screen was cleared!");
+end testCls;
