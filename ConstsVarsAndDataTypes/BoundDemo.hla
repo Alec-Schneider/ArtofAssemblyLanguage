@@ -1,0 +1,43 @@
+program BoundDemo;
+#include("stdlib.hhf");
+#include("excepts.hhf");
+
+static
+         InputValue: int32;
+         GoodInput:  boolean;
+
+begin BoundDemo;
+
+         // Repeat until the user enters a good value:
+
+         repeat
+               
+               // Assume the user enters a bad value
+               mov(false, GoodInput);
+
+               // Catch bad numeric input via the try..endtry statement
+               try
+                  stdout.put("Enter an integer between 1 and 10: ");
+                  stdin.flushInput();
+                  stdin.geti32();
+                  mov(eax, InputValue);
+                  
+                  bound(eax, 1, 10);
+
+                  // If we get to this point the value was in the range
+                  // 1..10, so we set the boolean "GoodInput" flag
+                  // to true so we can exit the loop
+
+                  mov(true, GoodInput);
+
+               exception(ex.ConversionError);
+                  stdout.put("Illegal numerical format, reenter", nl);
+               
+               exception(ex.ValueOutOfRange)
+                  stdout.put("Value is *way* too big, reenter", nl);
+
+               endtry;
+         until(GoodInput);
+         stdout.put("The value you entered ", InputValue, 
+               " is valid.", nl);
+end BoundDemo;

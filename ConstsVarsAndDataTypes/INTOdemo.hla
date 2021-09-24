@@ -1,0 +1,43 @@
+program INTOdemo;
+#include("stdlib.hhf");
+#include("excepts.hhf");
+
+static
+         LOperand:   int8;
+         ResultOp:   int8;
+
+begin INTOdemo;
+
+         // The following try..endtry checks for bad nueric
+         // input and handles the integer overflow check:
+
+         try
+               // Get the first of two operands
+               stdout.put("Enter a small integer (-128..+127): ");
+               stdin.geti8();
+               mov(al, LOperand);
+
+               // Get the second operand
+               stdout.put
+               (
+                   "Enter a second small integer value ",
+                   "(-128..+127): "
+               );
+               stdin.geti8();
+
+               // Produce their sum and check for overflow:
+               add(LOperand, al);
+               into();
+
+               // Display the sum
+               stdout.put("The eight-bit sum is ", (type int8 al), nl);
+
+               exception(ex.ConversionError);
+                  stdout.put("Illegal numerical format, reenter", nl);
+               
+               exception(ex.ValueOutOfRange)
+                  stdout.put("Value is *way* too big, reenter", nl);
+
+               endtry;
+end INTOdemo;
+
