@@ -1,0 +1,26 @@
+// Program to demonstrate straloc and stdin.gets
+
+program strfreeDemo2;
+#include("stdlib.hhf");
+
+static
+    theString: string;
+
+begin strfreeDemo2;
+
+    // Prompt the user and read the string from the user:
+
+    stdout.put("Enter a line of text :");
+    stdin.flushInput();
+    stdin.a_gets();     // Use a_gets to stralloc and get the user input
+    mov(eax, theString); // Move the address to the pointer
+
+    // echo the stirng back to the user:
+
+    stdout.put("The string you entered was: ", theString, nl);
+
+    // Free up the storage allocated by stralloc:
+    stdout.put("Freeing memory from string pointer");
+    strfree(theString);
+
+end strfreeDemo2;
