@@ -1,0 +1,18 @@
+program demoCsets;
+#include("stdlib.hhf")
+
+const
+    csetSrc: cset := {'a'..'z', 'A'..'Z'};
+
+begin demoCsets;
+
+    stdout.put("Enter a character: ");
+    stdin.flushInput();
+    stdin.getc();
+
+    if(al in csetSrc) then
+        stdout.put("Character is alphabetic" nl);
+    else
+        stdout.put("Charcter is not alphabetic" nl);
+    endif;
+end demoCsets;
