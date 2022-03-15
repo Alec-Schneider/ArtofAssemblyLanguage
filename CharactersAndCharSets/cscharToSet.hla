@@ -1,0 +1,30 @@
+// Program that demonstrates the implementation of
+// the cs.charToCset function.
+
+program charToCset;
+#include("stdlib.hhf")
+
+static
+    csetDest: cset;
+    chrValue: char := 'a';
+
+begin charToCset;
+
+    // How to create an empty set (cs.empty):
+    // (Zero out all bits in the cset)
+
+    mov(0, eax);
+    mov(eax, (type dword csetDest));
+    mov(eax, (type dword csetDest[4]));
+    mov(eax, (type dword csetDest[8]));
+    mov(eax, (type dword csetDest[12]));
+
+    // Okay, use the BTS instruction to set the specificed bit in
+    // the character set.
+
+    movzx(chrValue, eax);
+    bts(eax, csetDest);
+
+    stdout.put("Singleton set = {", csetDest, "}" nl);
+
+end charToCset;

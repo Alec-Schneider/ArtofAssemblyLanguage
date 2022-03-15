@@ -1,0 +1,29 @@
+// Program that demonstrates the implementation of
+// the csRangeChar function
+
+program csRangeChar;
+#include("stdlib.hhf")
+
+static
+    csetDest: cset;
+    startRange: char := 'a';
+    endRange: char := 'z';
+
+begin csRangeChar;
+
+    mov(0, eax);
+    mov(eax, (type dword csetDest));
+    mov(eax, (type dword csetDest[4]));
+    mov(eax, (type dword csetDest[8]));
+    mov(eax, (type dword csetDest[12]));
+
+    movzx(startRange, eax);
+    while(al <= endRange) do
+        bts(eax, csetDest);
+        inc(al);
+
+    endwhile;
+
+    stdout.put("Final set = {", csetDest, "}" nl);
+
+end csRangeChar;

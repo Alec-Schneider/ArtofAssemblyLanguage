@@ -1,0 +1,27 @@
+// Program that demonstrates the implementation of
+// the cs.removeChar function
+
+program csRemoveChar;
+#include("stdlib.hhf")
+
+static
+    csetDest: cset := {'0'..'9'};
+    chrVal1: char := '0';
+    chrVal2: char := 'a';
+
+begin csRemoveChar;
+
+    // Okay, use the BTC instruction to remove the specified bit from
+    // the character set.
+
+    movzx(chrVal1, eax);
+    btr(eax, csetDest);
+
+    stdout.put("Set w/o '0' = {", csetDest, "}" nl);
+
+    movzx(chrVal2, eax);
+    btr(eax, csetDest);
+
+    stdout.put("Final set = {", csetDest, "}" nl);
+
+end csRemoveChar;
